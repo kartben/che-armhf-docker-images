@@ -19,8 +19,8 @@ RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo bash - && \
     sudo apt-get install -y build-essential nodejs
 
 EXPOSE 3000 5000 9000
-RUN sudo npm install -g npm@latest
-RUN sudo npm install --unsafe-perm -g gulp bower grunt grunt-cli yeoman-generator yo generator-angular generator-karma generator-webapp
+RUN sudo npm install -g npm@latest --verbose
+RUN sudo npm install --unsafe-perm -g gulp bower grunt grunt-cli yeoman-generator yo generator-angular generator-karma generator-webapp --verbose
 
 
 # Execute further instructions as a user and login to terminal as user. Skip this instruction if there's already a user with UID 1000 in the image
