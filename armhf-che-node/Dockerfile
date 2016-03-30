@@ -22,12 +22,15 @@ EXPOSE 3000 5000 9000
 RUN sudo npm install -g npm@latest --verbose
 RUN sudo npm install --unsafe-perm -g gulp bower grunt grunt-cli yeoman-generator yo generator-angular generator-karma generator-webapp --verbose
 
+RUN locale-gen en_US.UTF-8 && sudo localedef -i en_US -f UTF-8 en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 # Execute further instructions as a user and login to terminal as user. Skip this instruction if there's already a user with UID 1000 in the image
 USER user
 
-# Expose 22 port for sshd
-EXPOSE 22
+EXPOSE 22 4403
 
 # Start sshd and execute a non-terminating command
 CMD sudo /usr/sbin/sshd -D && \
